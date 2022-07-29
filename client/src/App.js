@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import * as React from "react";
 import './App.css';
+// import {Api} from './api/api'
+import {Route, Routes} from 'react-router-dom'
+import {useLocalStorage} from 'react-use-storage'
+import MenuBar from "./components/menuBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [login, setLogin, removeValue] = useLocalStorage("login", null)
+
+    const Main = () => {
+        return <h1>main</h1>
+    }
+
+    return (
+        <>
+        <MenuBar>
+            <h1>Hello app</h1>
+        </MenuBar>
+
+            <Routes>
+                {/*<Route exact path={'/'} element={Main}/>*/}
+            </Routes>
+        </>
+    );
 }
 
 export default App;

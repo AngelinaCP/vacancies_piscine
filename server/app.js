@@ -32,6 +32,7 @@ app.put('/vacancies/:id', async (req, res) => {
         return res.status(500).json({ error: 'Something went wrong' })
     }
 })
+
 app.get('/vacancies', async(req, res) => {
     try {
         const vacancies = await Vacancy.findAll({})
